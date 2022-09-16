@@ -19,6 +19,7 @@ html {
     --footer-background-color: #2F303A;
     --contacts-color: #AFB1B8;
     --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --register-form-button: #188CE8;
 }
 
 body {
@@ -222,6 +223,154 @@ h1, h2, h3, p {
     scale: 0;
 }
 
+.register-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.register-form-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.15;
+    display: block;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--basic-text-color);
+    margin-bottom: 12px;
+}
+
+.register-form-field {
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.register-form-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    color: var(--secondary-text-color);
+}
+
+.register-form-input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    padding-left: 42px;
+    padding-right: 42px;
+    outline: transparent;
+    cursor: pointer;
+    transition: border var(--animation);
+}
+
+.register-form-input:focus,
+.register-form-input:not(:placeholder-shown),
+textarea:focus {
+    border: 1px solid var(--accent-color);
+}
+
+.register-form-input:focus ~ .register-form-icon {
+    fill: var(--accent-color);
+}
+
+.register-form-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transition: fill var(--animation);
+}
+
+.icon-checked {
+    opacity: 0;
+    transition: opacity var(--animation);
+}
+
+.register-form-checkbox:checked + .register-form-icons .icon-checked {
+    opacity: 1;
+}
+
+.icon-unchecked {
+    transition: opacity var(--animation);
+}
+
+.register-form-checkbox:checked + .register-form-icons .icon-unchecked {
+    opacity: 0;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    resize: none;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    outline: transparent;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: border var(--animation);
+}
+
+textarea::placeholder {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+}
+
+.register-form-agreement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.register-form-link {
+    display: inline-block;
+    text-decoration-line: underline;
+    color: var(--accent-color);
+}
+
+.register-form-desc {
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: 0.03em;
+    color: var(--secondary-text-color);
+}
+
+.register-form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 52px;
+    width: 200px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: 0.06em;
+    color: var(--primary-white-color);
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color var(--animation);
+}
+
+.register-form-button:hover,
+.register-form-button:focus {
+    background-color: var(--register-form-button);
+}
+
+.register-form {
+    padding: 40px;
+}
+
 .modal {
     position: absolute;
     top: 50%;
@@ -232,6 +381,19 @@ h1, h2, h3, p {
     background: var(--primary-white-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.modal-icon {
+    fill: currentColor;
+    transition: fill var(--animation);
+}
+
+.modal-btn:hover .modal-icon,
+.modal-btn:focus .modal-icon {
+    fill: var(--accent-color);
 }
 
 .modal-btn {
@@ -341,7 +503,8 @@ img {
 
 .benefits-title,
 .social-title,
-.directions-desc {
+.directions-desc,
+.footer-form-title {
     font-weight: 700;
     font-size: 14px;
     line-height: 1.14;
@@ -522,7 +685,8 @@ img {
     margin-left: 70px;
 }
 
-.social-title {
+.social-title,
+.footer-form-title {
     margin-bottom: 20px;
     color: var(--primary-white-color);
 }
@@ -550,6 +714,62 @@ img {
 
 .social-icon {
     fill: var(--primary-white-color);
+}
+
+.footer-form {
+    margin-left: 93px;
+}
+
+.footer-form-input {
+    width: 358px;
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 15px 16px;
+    cursor: pointer;
+    outline: transparent;
+    transition: border var(--animation);
+}
+
+.footer-form-input:focus,
+.footer-form-input:not(:placeholder-shown) {
+    border: 1px solid var(--accent-color);
+}
+
+.footer-form-input::placeholder {
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-form-button {
+    position: relative;
+    margin-left: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 28px;
+    padding-right: 62px;
+    width: 200px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: 0.06em;
+    color: var(--primary-white-color);
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.footer-form-icon {
+    position: absolute;
+    top: 13px;
+    right: 28px;
 }
 
 .portfolio-group-list {
